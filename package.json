@@ -1,7 +1,7 @@
 {
-  "name": "greasemonkey-webpack-typescript-boilerplate",
+  "name": "wordle-solver",
   "version": "1.0.4",
-  "description": "A Greasemonkey/Tampermonkey Webpack + TypeScript boilerplate",
+  "description": "An auto solver for the game Wordle",
   "main": "index.js",
   "scripts": {
     "build": "npx webpack",
@@ -9,34 +9,34 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tarkant/greasemonkey-webpack-typescript-boilerplate.git"
+    "url": "git+https://github.com/bobosneefdev/wordle-solver.git"
   },
   "keywords": [
-    "Boilerplate",
-    "Greasemonkey",
-    "Webpack",
-    "Tampermonkey",
-    "TypeScript"
+    "Wordle",
+    "Bot",
+    "Automation"
   ],
-  "author": "Tarek Jellali",
+  "author": "bobosneefdev",
   "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/tarkant/greasemonkey-webpack-typescript-boilerplate/issues"
-  },
-  "homepage": "https://github.com/tarkant/greasemonkey-webpack-typescript-boilerplate#readme",
+  "homepage": "https://github.com/bobosneefdev/wordle-solver#readme",
   "devDependencies": {
-    "@types/node": "^14.14.35",
+    "@types/node": "^22.3.0",
     "concat-files": "^0.1.1",
-    "css-loader": "^5.1.3",
-    "html-loader": "^2.1.2",
-    "node-sass": "^5.0.0",
-    "sass-loader": "^11.0.1",
-    "style-loader": "^2.0.0",
-    "ts-loader": "^8.0.18",
-    "typescript": "^4.2.3",
-    "webpack": "^5.26.3",
-    "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2",
-    "webpack-dev-server-inject-scripts": "^0.2.0"
+    "css-loader": "^7.1.2",
+    "html-loader": "^5.1.0",
+    "node-sass": "^9.0.0",
+    "raw-loader": "^4.0.2",
+    "sass-loader": "^16.0.0",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.4",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4",
+    "webpack-dev-server-inject-scripts": "^0.3.0"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "wordle-wordlist": "^1.0.1-c"
   }
 }
