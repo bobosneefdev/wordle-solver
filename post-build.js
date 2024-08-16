@@ -25,7 +25,7 @@ const HEADER = `// ==UserScript==
 // @licence      ${package.license}
 // @author       ${package.author}
 // @match        https://wordleunlimited.org/*
-// @grant        none
+// @grant        GM_addStyle
 // @updateURL    ${updateUrl}
 // @downloadURL  ${downloadUrl}
 // ==/UserScript==

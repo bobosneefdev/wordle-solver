@@ -11,3 +11,5 @@ declare module '*.txt' {
   const content: string;
   export default content;
 }
+
+declare function GM_addStyle(css: string): void;
