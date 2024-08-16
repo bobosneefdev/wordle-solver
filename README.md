@@ -1,72 +1,55 @@
-# 🐵 Greasemonkey Webpack + TypeScript boilerplate
+# Wordle Solver for wordleunlimited.org
 
-Create your Greasemonkey userscripts with the comfort of Webpack and TypeScript.
+This repository contains a Tampermonkey script designed to automatically solve Wordle games on [wordleunlimited.org](https://wordleunlimited.org). The script leverages automated logic to find the correct word based on the game's feedback mechanism.
 
-## 📑 What's the purpose of this boilerplate?
+## Features
 
-This will help you generate a userscript file while being able to write everything in TypeSript. You can also inject SCSS files and HTML. This uses no fancy frameworks or libs to avoid interfering with your destination website but of course, you're free to do whatever you like. I believe that Webpack will bundle your libs in a way that they will not interfere with the destination page.
+-   Automatically solves Wordle puzzles on wordleunlimited.org.
+-   Uses feedback from the game to intelligently guess the next word.
+-   Designed to work with the Wordle interface on wordleunlimited.org.
 
-## 🍴 How to use this boilerplate ?
+## Installation
 
-Simple, just click the "Use this template" button or better, [click here](https://github.com/tarkant/greasemonkey-webpack-typescript-boilerplate/generate) and create your repo.
+1. **Install Tampermonkey:**
 
-Next, run the good old :
-```bash
-npm install
-```
+    - For Chrome, visit the [Chrome Web Store](https://chrome.google.com/webstore/detail/tampermonkey/dgngnkaabnmmcbdihbgcajamclpbmiib) and click "Add to Chrome."
+    - For Firefox, visit the [Firefox Add-ons site](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/) and click "Add to Firefox."
 
-Finally and very importantly, go to the file `post-build.js` and replace the @match pattern with your destination website :
+2. **Install the Script:**
 
-```js
-// @match        http://example.com/
-```
+    - Click the Tampermonkey extension icon in your browser toolbar.
+    - Select "Create a new script."
+    - Copy and paste the contents of `wordle-solver.user.js` from this repository into the Tampermonkey editor.
+    - Save the script.
 
-**Note:** You can still install the current boilerplate userscript [by clicking here](https://github.com/tarkant/greasemonkey-webpack-typescript-boilerplate/raw/master/dist/greasemonkey-webpack-typescript-boilerplate.user.js) then headint to [http://example.com/](http://example.com/), you'll see a div with injected html and CSS 😊 .
+3. **Access the Wordle Game:**
+    - Navigate to [wordleunlimited.org](https://wordleunlimited.org) in your browser.
+    - The script will automatically start solving the Wordle puzzle for you.
 
-## ⚙ How does the post-build.js work?
+## Usage
 
-This script file will be ran by NodeJS to prepend the header needed for Greasemonkey to detect that it is a userscript. I tried to make it as automatic as possible so it will read the package.json information and add them to the userscript.
+Once the script is installed and you are on the Wordle game page, it will begin solving the game automatically. The script interacts with the game's interface to provide optimal guesses and solve the puzzle.
 
-Mainly the script will take these information from the package.json :
-- name
-- version
-- description
-- license
-- author
+## Configuration
 
-**Important note:** To gather the Github repo url, the script replaces some strings in this funky line of code :
-```js
-const url = package.repository.url.replace('git+', '').replace('.git', '');
-```
-If by some change something goes wrong, you know where to look.
+The script is designed to work out of the box. However, if you want to modify its behavior, you can edit the script directly in the Tampermonkey editor. Common configurations include adjusting the guessing strategy or altering the frequency of guesses.
 
-**Important note 2:** The script also adds the update and download url by taking the precedent url and adding some static text using this funky line :
-```js
-const updateUrl = package.repository.url.replace('git+', '').replace('.git', '') + '/raw/master/dist/' + distUserScript;
-```
-Again, if you don't understand why something is going wrong, this might be the culprit.
+## Contributing
 
-## ⚒ How to build my userscript ?
+Contributions are welcome! If you have suggestions for improvements or have found a bug, please submit an issue or a pull request. Please ensure your contributions align with the project's goals and standards.
 
-To build your userscript just run :
+## License
 
-```bash
-npm run build
-```
+This project is licensed under the [MIT License](LICENSE).
 
-This will the userscript in the `dist` folder that you can install on Greasemonkey or Tampermonkey.
+## Disclaimer
 
+This script is intended for educational purposes and to enhance the gaming experience on wordleunlimited.org. Use it responsibly and consider the implications of automating gameplay.
 
-## 🆘 Issues and contributions
+## Contact
 
-If you have an issue with the boilerplate or want to contribute, please let me know I'll be happy to interact with you.
+For any questions or support, please contact the project maintainer at [your-email@example.com](mailto:your-email@example.com).
 
-Happy hacking!
+---
 
-## ⏲ Changelog
-
-- v1.0.4: Improve HTML importing
-- v1.0.3: Fix example.com `@match` pattern
-- v1.0.2: Bump packages version
-- v1.0.1: Minor fixes & made userscript work for example.com
-- v1.0.0: Base boilerplate
+Happy solving!

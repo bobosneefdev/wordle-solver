@@ -13,6 +13,8 @@ export const boardRowTiles = (row: number) => {
 
 export const lengthOfWord = 5;
 
-export const pointsLostOnRepeatLetter = 0.51;
+export const delayMsBetweenEntries = 1800;
 
-export const starters = ["crane", "shelf"]
+export const pointBonusOnNewLetter = 1;
+
+export const starter = "tales";
