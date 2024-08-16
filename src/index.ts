@@ -264,7 +264,7 @@ function createBanner() {
     GM_addStyle(`
         #custom-banner {
             position: fixed;
-            top: 0;
+            top: 50px;
             left: 0;
             right: 0;
             background-color: #333;
