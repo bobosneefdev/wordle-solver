@@ -24,7 +24,7 @@ This repository contains a Tampermonkey script designed to automatically solve W
 
 3. **Access the Wordle Game:**
     - Navigate to [wordleunlimited.org](https://wordleunlimited.org) in your browser.
-    - The script will automatically start solving the Wordle puzzle for you.
+    - Use the buttons at the top of the page within the banner to automatically solve 1 line, or the full game.
 
 ## Usage
 
@@ -38,17 +38,11 @@ The script is designed to work out of the box. However, if you want to modify it
 
 Contributions are welcome! If you have suggestions for improvements or have found a bug, please submit an issue or a pull request. Please ensure your contributions align with the project's goals and standards.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Disclaimer
 
-This script is intended for educational purposes and to enhance the gaming experience on wordleunlimited.org. Use it responsibly and consider the implications of automating gameplay.
+This script is intended for educational purposes only.
 
-## Contact
-
-For any questions or support, please contact the project maintainer at [your-email@example.com](mailto:your-email@example.com).
 
 ---
 
