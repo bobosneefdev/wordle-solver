@@ -30,14 +30,6 @@ This repository contains a Tampermonkey script designed to automatically solve W
 
 Once the script is installed and you are on the Wordle game page, it will begin solving the game automatically. The script interacts with the game's interface to provide optimal guesses and solve the puzzle.
 
-## Configuration
-
-The script is designed to work out of the box. However, if you want to modify its behavior, you can edit the script directly in the Tampermonkey editor. Common configurations include adjusting the guessing strategy or altering the frequency of guesses.
-
-## Contributing
-
-Contributions are welcome! If you have suggestions for improvements or have found a bug, please submit an issue or a pull request. Please ensure your contributions align with the project's goals and standards.
-
 
 ## Disclaimer
 
