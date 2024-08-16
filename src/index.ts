@@ -298,9 +298,9 @@ function createBanner() {
     const banner = document.createElement('div');
     banner.id = 'custom-banner';
     banner.innerHTML = `
-        <button id="best-guess">Best Guess</button>
+        <button id="best-guess">Solve Row</button>
         <h2>Wordle Solver</h2>
-        <button id="quick-solve">Quick Solve</button>
+        <button id="quick-solve">Solve Game</button>
     `;
 
     document.body.appendChild(banner);
