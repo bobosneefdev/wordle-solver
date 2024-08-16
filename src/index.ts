@@ -27,19 +27,19 @@ function bestGuess() {
 async function quickSolve() {
     let startTimer = Date.now();
 
-    await guessWord(constants.starter);
-    const letterInfo = getLetterInfo();
-    if (letterInfo === true) {
-        console.log(`Solved in ${Date.now() - startTimer}ms`);
-        return;
-    }
-
     for (let i = 0; i < 6; i++) {
         const letterInfo = getLetterInfo();
         if (letterInfo === true) {
             console.log(`Solved in ${Date.now() - startTimer}ms`);
             return;
         }
+
+        const isFirstGuess = Object.values(letterInfo).every(letter => letter === null);
+        if (isFirstGuess) {
+            await guessWord(constants.starter);
+            continue;
+        }
+
         const mostProbableWord = getMostProbableWord(letterInfo);
         console.log('best guess:', mostProbableWord);
         await guessWord(mostProbableWord.word);
@@ -72,22 +72,6 @@ function getMostProbableWord(gameLetterInfos: Record<
     };
 
     for (const word of words) {
-        // For testing
-        let logFailReason = false;
-        if (
-            word[0] === 's' &&
-            word[3] === 's' &&
-            !word.includes('c') &&
-            !word.includes('r') &&
-            !word.includes('a') &&
-            !word.includes('n') &&
-            !word.includes('e') &&
-            !word.includes('i') &&
-            !word.includes('y')
-        ) {
-            logFailReason = true;
-        }
-
         // Store the key information about each letter in the word
         let guessLetterInfos: Partial<Record<alphabet, { count: number, positions: number[] }>> = {};
         for (let i = 0; i < constants.lengthOfWord; i++) {
@@ -108,9 +92,6 @@ function getMostProbableWord(gameLetterInfos: Record<
             
             // If we know the letter is not in the word, yet it is in this guess, skip word
             if (gameLetterInfo === false && guessLetterInfo && guessLetterInfo.count > 0) {
-                if (logFailReason) {
-                    console.log(`Word ${word} has ${alphabetLetter} but it shouldn't`);
-                }
                 validGuess = false;
                 break;
 
@@ -121,18 +102,12 @@ function getMostProbableWord(gameLetterInfos: Record<
 
             // If the word doesn't have enough of a given letter, skip word
             if ((guessLetterInfo?.count || 0) < (gameLetterInfo?.count || 0)) {
-                if (logFailReason) {
-                    console.log(`Word ${word} doesn't have enough ${alphabetLetter} (${guessLetterInfo?.count || 0} vs ${gameLetterInfo.count})`);
-                }
                 validGuess = false;
                 break;
             }
 
             // If the word doesn't have exactly the definitive count of a given letter, skip word
             if (gameLetterInfo?.definitiveCount && gameLetterInfo.definitiveCount !== guessLetterInfo?.count) {
-                if (logFailReason) {
-                    console.log(`Word ${word} doesn't have exactly ${gameLetterInfo.definitiveCount} ${alphabetLetter}`);
-                }
                 validGuess = false;
                 break;
             }
@@ -141,10 +116,6 @@ function getMostProbableWord(gameLetterInfos: Record<
             if (gameLetterInfo !== null) {
                 for (const gameCorrectPosition of gameLetterInfo.correctPositions) {
                     if (!guessLetterInfo?.positions.includes(gameCorrectPosition)) {
-                        if (logFailReason) {
-                            console.log(`Word ${word} doesn't have ${alphabetLetter} in char ${gameCorrectPosition}`);
-                        }
-
                         validGuess = false;
                         break;
                     }
@@ -158,10 +129,6 @@ function getMostProbableWord(gameLetterInfos: Record<
             if (gameLetterInfo !== null) {
                 for (const gameIncorrectPosition of gameLetterInfo.incorrectPositions) {
                     if (guessLetterInfo?.positions.includes(gameIncorrectPosition)) {
-                        if (logFailReason) {
-                            console.log(`Word ${word} has ${alphabetLetter} in char ${gameIncorrectPosition}`);
-                        }
-
                         validGuess = false;
                         break;
                     }
