@@ -1,41 +1,22 @@
-# Wordle Solver for wordleunlimited.org
+# Wordle Solver
 
-This repository contains a Tampermonkey script designed to automatically solve Wordle games on [wordleunlimited.org](https://wordleunlimited.org). The script leverages automated logic to find the correct word based on the game's feedback mechanism.
+A Tampermonkey Wordle solver. Requires Bun 1.4 and Node.js 24 (for tsdown).
 
-## Features
+```sh
+bun install --frozen-lockfile
+bun run check
+bun run dev
+```
 
--   Automatically solves Wordle puzzles on wordleunlimited.org.
--   Uses feedback from the game to intelligently guess the next word.
--   Designed to work with the Wordle interface on wordleunlimited.org.
+Write the script in `src/index.ts`. `bun run build` bundles it into
+`dist/wordle-solver.user.js`, with the Tampermonkey metadata first.
+Install that file in Tampermonkey, or use the latest GitHub release asset.
 
-## Installation
+The `@version` in `src/index.ts` is the release version. Use stable
+`major.minor.patch` versions. Pushes and pull requests run type checks
+and a build. A successful push to the default branch publishes a GitHub release
+and attaches the userscript when its version exceeds the latest published release.
+With no previous release, the first version is published. Equal or lower versions
+are checked but not released. The workflow uses the built-in `GITHUB_TOKEN`.
 
-1. **Install Tampermonkey:**
-
-    - For Chrome, visit the [Chrome Web Store](https://chrome.google.com/webstore/detail/tampermonkey/dgngnkaabnmmcbdihbgcajamclpbmiib) and click "Add to Chrome."
-    - For Firefox, visit the [Firefox Add-ons site](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/) and click "Add to Firefox."
-
-2. **Install the Script:**
-
-    - Click the Tampermonkey extension icon in your browser toolbar.
-    - Select "Create a new script."
-    - Copy and paste the contents of `wordle-solver.user.js` from this repository into the Tampermonkey editor.
-    - Save the script.
-
-3. **Access the Wordle Game:**
-    - Navigate to [wordleunlimited.org](https://wordleunlimited.org) in your browser.
-    - Use the buttons at the top of the page within the banner to automatically solve 1 line, or the full game.
-
-## Usage
-
-Once the script is installed and you are on the Wordle game page, it will begin solving the game automatically. The script interacts with the game's interface to provide optimal guesses and solve the puzzle.
-
-
-## Disclaimer
-
-This script is intended for educational purposes only.
-
-
----
-
-Happy solving!
+Git history and the existing GPL license are retained; the old application is removed.

@@ -1,42 +1,19 @@
 {
   "name": "wordle-solver",
-  "version": "1.0.4",
-  "description": "An auto solver for the game Wordle",
-  "main": "index.js",
-  "scripts": {
-    "build": "npx webpack",
-    "start": "npx webpack serve --progress --mode development"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bobosneefdev/wordle-solver.git"
-  },
-  "keywords": [
-    "Wordle",
-    "Bot",
-    "Automation"
-  ],
-  "author": "bobosneefdev",
+  "private": true,
+  "type": "module",
   "license": "GPL-3.0-or-later",
-  "homepage": "https://github.com/bobosneefdev/wordle-solver#readme",
-  "devDependencies": {
-    "@types/node": "^22.3.0",
-    "concat-files": "^0.1.1",
-    "css-loader": "^7.1.2",
-    "html-loader": "^5.1.0",
-    "node-sass": "^9.0.0",
-    "raw-loader": "^4.0.2",
-    "sass-loader": "^16.0.0",
-    "style-loader": "^4.0.0",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.5.4",
-    "webpack": "^5.93.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4",
-    "webpack-dev-server-inject-scripts": "^0.3.0"
+  "packageManager": "bun@1.4.2",
+  "engines": { "bun": ">=1.4.0 <1.5.0" },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit",
+    "check": "bun run typecheck && bun run build"
   },
-  "dependencies": {
-    "fs": "^0.0.1-security",
-    "wordle-wordlist": "^1.0.1-c"
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsdown": "0.23.1",
+    "typescript": "7.0.2"
   }
 }
